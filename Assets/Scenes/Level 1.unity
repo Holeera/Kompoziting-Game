@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 547641555}
   - component: {fileID: 547641556}
   - component: {fileID: 547641557}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 729128464}
   - component: {fileID: 729128465}
   - component: {fileID: 729128466}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 871773632}
   - component: {fileID: 871773633}
   - component: {fileID: 871773634}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -671,6 +671,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c55d4755b429a54e9f14f305c765657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpHeight: 3.5
+  timeToJumpApex: 0.4
 --- !u!114 &1462573864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -683,6 +685,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9753fa2781a687b48ad96d075fa1f44d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 64
   horizontalRayCount: 4
   verticalRayCount: 4
 --- !u!61 &1462573865
@@ -821,7 +826,7 @@ GameObject:
   - component: {fileID: 1927568456}
   - component: {fileID: 1927568457}
   - component: {fileID: 1927568458}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
