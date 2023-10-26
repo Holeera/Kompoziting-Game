@@ -8,11 +8,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Background
   - Water
   - UI
   - Obstacles
-  - 
+  - player
   - 
   - 
   - 
@@ -40,4 +40,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 581358403
+    locked: 0
+  - name: kretanje
+    uniqueID: 885455147
+    locked: 0
+  - name: spratovi
+    uniqueID: 1602785315
+    locked: 0
+  - name: Obstacles
+    uniqueID: 1143921813
     locked: 0
