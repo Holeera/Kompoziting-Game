@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class Inspect : MonoBehaviour
 {
     public bool inTrigger;
     public bool displayText;
     public GameObject tekst;
-    bool EPressed = false;   
+    bool EPressed = false;
 
     public GameObject tekstPressE;
 
@@ -16,7 +18,7 @@ public class Inspect : MonoBehaviour
     {
         inTrigger = true;
         tekstPressE.SetActive(true);
-        
+
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -25,7 +27,7 @@ public class Inspect : MonoBehaviour
         tekst.SetActive(false);
         tekstPressE.SetActive(false);
         EPressed = false;
-        
+
     }
 
 
@@ -42,18 +44,19 @@ public class Inspect : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) & !EPressed)
             {
                 // make it the oppsite of whatever it was
-                
+
                 tekst.SetActive(true);
                 EPressed = true;
 
             }
 
             if (EPressed)
-            { tekstPressE.SetActive(false);
+            {
+                tekstPressE.SetActive(false);
             }
 
             // this will only show text if your in the trigger and you toggled displayText to true.
-    }
+        }
 
     }
 }
