@@ -53,3 +53,6 @@ TagManager:
   - name: Obstacles
     uniqueID: 1143921813
     locked: 0
+  - name: trigger
+    uniqueID: 1841040533
+    locked: 0
