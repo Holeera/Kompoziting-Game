@@ -8,14 +8,9 @@ public class Inspect : MonoBehaviour
     public bool inTrigger;
     public bool displayText;
     public GameObject tekst;
-    bool Epressed = false;
-   
+    bool EPressed = false;   
 
     public GameObject tekstPressE;
-
-
-
-
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -29,7 +24,7 @@ public class Inspect : MonoBehaviour
         inTrigger = false;
         tekst.SetActive(false);
         tekstPressE.SetActive(false);
-        Epressed = false;
+        EPressed = false;
         
     }
 
@@ -41,23 +36,19 @@ public class Inspect : MonoBehaviour
     }
 
     void Update()
-
-
     {
-        
-
         if (inTrigger)
         {
-            if (Input.GetKeyDown(KeyCode.E) & !Epressed)
+            if (Input.GetKeyDown(KeyCode.E) & !EPressed)
             {
                 // make it the oppsite of whatever it was
                 
                 tekst.SetActive(true);
-                Epressed = true;
+                EPressed = true;
 
             }
 
-            if (Epressed)
+            if (EPressed)
             { tekstPressE.SetActive(false);
             }
 
