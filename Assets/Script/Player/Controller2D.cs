@@ -53,10 +53,16 @@ public class Controller2D : RaycastController
         }
     }
 
-    void Crouch()
+    public void Crouch()
     {
-        collisions.below = false;
-        //smanji se collider i player, uradi se animacija, player ne moze da hoda dok se crouch desava. Dok se drzi button, radi
+        if (collisions.below)
+        {
+            transform.localScale = new Vector3(1, 0.5f, 1);
+        }
+    }
+    public void UnCrouch()
+    {
+        transform.localScale = new Vector3(1, 1, 1);
     }
 
     void HorizontalCollisions(ref Vector3 velocity)
@@ -237,6 +243,7 @@ public class Controller2D : RaycastController
 
         public bool climbingSlope;
         public bool descendingSlope;
+        public bool isCrouching;
 
         public float slopeAngle, slopeAngleOld;
         public Vector3 velocityOld;
@@ -249,6 +256,7 @@ public class Controller2D : RaycastController
             left = right = false;
             climbingSlope = false;
             descendingSlope = false;
+            isCrouching = false;
 
             slopeAngleOld = slopeAngle;
             slopeAngle = 0;

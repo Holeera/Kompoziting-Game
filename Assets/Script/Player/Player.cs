@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Controller2D))]
@@ -112,7 +113,24 @@ public class Player : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (!wallSliding && controller.collisions.below)
+            {
+                controller.Crouch();
+                moveSpeed = 3;
+                controller.collisions.isCrouching = true;
+            }
+        }
 
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            if (!wallSliding)
+            {
+                moveSpeed = 6;
+                controller.UnCrouch();
+            }
+        }
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime, input);
 
