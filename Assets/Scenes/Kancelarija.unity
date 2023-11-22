@@ -1970,7 +1970,7 @@ GameObject:
   m_Component:
   - component: {fileID: 581070492}
   m_Layer: 0
-  m_Name: Obsticles
+  m_Name: Obstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7523,6 +7523,7 @@ MonoBehaviour:
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   coll: {fileID: 0}
+  playerInput: {x: 0, y: 0}
 --- !u!61 &6134155096286616535
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7582,5 +7583,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c55d4755b429a54e9f14f305c765657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 3.5
+  maxJumpHeight: 4
+  minJumpHeight: 1
   timeToJumpApex: 0.4
+  wallJumpClimb: {x: 0, y: 0}
+  wallJumpOff: {x: 0, y: 0}
+  wallLeap: {x: 0, y: 0}
+  wallSlideSpeedMax: 3
+  wallStickTime: 0.5
