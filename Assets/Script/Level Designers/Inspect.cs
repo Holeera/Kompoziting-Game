@@ -16,20 +16,25 @@ public class Inspect : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        inTrigger = true;
-        tekstPressE.SetActive(true);
+        if (other.gameObject.CompareTag("Player"))
 
+        {
+            inTrigger = true;
+            tekstPressE.SetActive(true);
+
+        }
     }
-
     void OnTriggerExit2D(Collider2D other)
     {
-        inTrigger = false;
-        tekst.SetActive(false);
-        tekstPressE.SetActive(false);
-        EPressed = false;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            inTrigger = false;
+            tekst.SetActive(false);
+            tekstPressE.SetActive(false);
+            EPressed = false;
 
+        }
     }
-
 
     private void Start()
     {
