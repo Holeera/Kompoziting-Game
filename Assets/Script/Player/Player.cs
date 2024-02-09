@@ -112,8 +112,7 @@ public class Player : MonoBehaviour
                 velocity.y = minJumpVelocity;
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.S))
+      /*  if (Input.GetKeyDown(KeyCode.S))
         {
             if (!wallSliding && controller.collisions.below)
             {
@@ -122,7 +121,6 @@ public class Player : MonoBehaviour
                 controller.collisions.isCrouching = true;
             }
         }
-
         if (Input.GetKeyUp(KeyCode.S))
         {
             if (!wallSliding)
@@ -131,8 +129,11 @@ public class Player : MonoBehaviour
                 controller.UnCrouch();
             }
         }
+        */
+
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime, input);
+        
 
         if (controller.collisions.above || controller.collisions.below)
         {

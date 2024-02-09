@@ -28,11 +28,39 @@ public class Controller2D : RaycastController
         collisions.velocityOld = velocity;
         playerInput = input;
 
+
+
         if (velocity.x != 0)
         {
             collisions.faceDir = (int)Mathf.Sign(velocity.x);
         }
+        Debug.Log(collisions.faceDir);
+        #region Walk Animation Handling
+        if ((input == new Vector2(1, 0) || input == new Vector2(-1, 0)) && collisions.faceDir == 1)
+        {
+            if (ScriptInfrastructure.instance.PlayerAnimator.gameObject.transform.rotation != Quaternion.Euler(0, 0, 0))
+            {
+                ScriptInfrastructure.instance.PlayerAnimator.gameObject.transform.Rotate(new Vector3(0, 180, 0));
+            }
 
+            ScriptInfrastructure.instance.PlayerAnimator.Play("PlayerWalk");
+
+        }
+        else if ((input == new Vector2(1, 0) || input == new Vector2(-1, 0)) && collisions.faceDir == -1)
+        {
+            if (ScriptInfrastructure.instance.PlayerAnimator.gameObject.transform.rotation != Quaternion.Euler(0, 180, 0))
+            {
+                ScriptInfrastructure.instance.PlayerAnimator.gameObject.transform.Rotate(new Vector3(0, 180, 0));
+            }
+
+            ScriptInfrastructure.instance.PlayerAnimator.Play("PlayerWalk");
+        }
+
+        if (input == new Vector2(0, 0))
+        {
+            ScriptInfrastructure.instance.PlayerAnimator.Play("PlayerIdle");
+        }
+        #endregion
         if (velocity.y < 0)
         {
             DescendSlope(ref velocity);

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ScriptInfrastructure : MonoBehaviour
 {
     public static ScriptInfrastructure instance;
+    public Animator PlayerAnimator; 
 
     private void Awake()
     {
