@@ -57,7 +57,7 @@ public class Inspect : MonoBehaviour
 
             if (EPressed)
             {
-                tekstPressE.SetActive(false);
+                tekstPressE.SetActive(true);
             }
 
             // this will only show text if your in the trigger and you toggled displayText to true.

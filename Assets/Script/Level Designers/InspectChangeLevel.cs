@@ -52,7 +52,7 @@ public class InspectChangeLevel : MonoBehaviour
                 // make it the oppsite of whatever it was
 
                 EPressed = true;
-                SceneManager.LoadScene("Level2");
+                SceneManager.LoadScene("End");
 
             }
 
