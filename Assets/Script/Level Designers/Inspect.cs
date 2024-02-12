@@ -12,7 +12,13 @@ public class Inspect : MonoBehaviour
     public GameObject tekst;
     bool EPressed = false;
 
+    [SerializeField] GameObject NadjaTeskt1;
+    [SerializeField] GameObject NadjaTeskt2;
+    [SerializeField] GameObject NadjaTeskt3;
+    [SerializeField] GameObject NadjaTeskt4;
+
     public GameObject tekstPressE;
+    int count = 0;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -23,7 +29,59 @@ public class Inspect : MonoBehaviour
             tekstPressE.SetActive(true);
 
         }
+
+        
     }
+
+    private void HandleNadja()
+    {
+        if (EPressed)
+        {
+            if (this.gameObject.name == "Coworker Trigger")
+            {
+                switch (count)
+                {
+                    case 0:
+                        NadjaTeskt4.SetActive(false);
+                        NadjaTeskt3.SetActive(false);
+                        NadjaTeskt2.SetActive(false);
+                        NadjaTeskt1.SetActive(true);
+                        count += 1;
+                        EPressed = false;
+                        break;
+                    case 1:
+                        NadjaTeskt1.SetActive(false);
+                        NadjaTeskt4.SetActive(false);
+                        NadjaTeskt3.SetActive(false);
+                        NadjaTeskt2.SetActive(true);
+                        count += 1;
+                        EPressed = false;
+                        break;
+                    case 2:
+                        NadjaTeskt2.SetActive(false);
+                        NadjaTeskt4.SetActive(false);
+                        NadjaTeskt1.SetActive(false);
+                        NadjaTeskt3.SetActive(true);
+                        count += 1;
+                        EPressed = false;
+                        break;
+                    case 3:
+                        NadjaTeskt3.SetActive(false);
+                        NadjaTeskt1.SetActive(false);
+                        NadjaTeskt2.SetActive(false);
+                        NadjaTeskt4.SetActive(true);
+                        count = 0;
+                        EPressed = false;
+                        break;
+                }
+            }
+            else if (this.gameObject.name != "Coworker Trigger")
+            {
+                tekstPressE.SetActive(true);
+            }
+        }
+    }
+
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -36,7 +94,7 @@ public class Inspect : MonoBehaviour
         }
     }
 
-    private void Start()
+    void Start()
     {
         tekst.SetActive(false);
         tekstPressE.SetActive(false);
@@ -52,16 +110,16 @@ public class Inspect : MonoBehaviour
 
                 tekst.SetActive(true);
                 EPressed = true;
-
+                HandleNadja();
+                ScriptInfrastructure.instance.GetComponent<AudioSource>().Play();
             }
 
-            if (EPressed)
-            {
-                tekstPressE.SetActive(true);
-            }
 
-            // this will only show text if your in the trigger and you toggled displayText to true.
+
         }
 
+        // this will only show text if your in the trigger and you toggled displayText to true.
     }
+
 }
+

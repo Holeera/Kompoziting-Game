@@ -6,11 +6,18 @@ using UnityEngine.SceneManagement;
 public class ScriptInfrastructure : MonoBehaviour
 {
     public static ScriptInfrastructure instance;
-    public Animator PlayerAnimator; 
+    public Animator PlayerAnimator;
+    public AudioClip PlayerFootsteps;
+    public AudioClip PlayerInteract;
 
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+
     }
 
     private void Update()

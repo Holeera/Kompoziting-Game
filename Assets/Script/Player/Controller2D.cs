@@ -27,14 +27,14 @@ public class Controller2D : RaycastController
         collisions.Reset();
         collisions.velocityOld = velocity;
         playerInput = input;
-
-
+        this.GetComponent<AudioSource>().clip = ScriptInfrastructure.instance.PlayerFootsteps;
+        if (!this.GetComponent<AudioSource>().isPlaying)
+            this.GetComponent<AudioSource>().Play();
 
         if (velocity.x != 0)
         {
             collisions.faceDir = (int)Mathf.Sign(velocity.x);
         }
-        Debug.Log(collisions.faceDir);
         #region Walk Animation Handling
         if ((input == new Vector2(1, 0) || input == new Vector2(-1, 0)) && collisions.faceDir == 1)
         {
@@ -59,6 +59,7 @@ public class Controller2D : RaycastController
         if (input == new Vector2(0, 0))
         {
             ScriptInfrastructure.instance.PlayerAnimator.Play("PlayerIdle");
+            this.GetComponent<AudioSource>().Stop();
         }
         #endregion
         if (velocity.y < 0)
