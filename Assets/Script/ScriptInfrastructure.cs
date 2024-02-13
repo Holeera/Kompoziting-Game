@@ -10,6 +10,9 @@ public class ScriptInfrastructure : MonoBehaviour
     public AudioClip PlayerFootsteps;
     public AudioClip PlayerInteract;
 
+    public GameObject colorCamera;
+    public GameObject monochromeCamera;
+
     private void Awake()
     {
         instance = this;
@@ -24,11 +27,13 @@ public class ScriptInfrastructure : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            SceneManager.LoadScene(1);
+            monochromeCamera.SetActive(false);
+            colorCamera.SetActive(true);
         }
         if (Input.GetKeyDown(KeyCode.O))
         {
-            SceneManager.LoadScene(0);
+            colorCamera.SetActive(false);
+            monochromeCamera.SetActive(true);
         }
     }
 }
